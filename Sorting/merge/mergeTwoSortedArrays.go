@@ -1,0 +1,24 @@
+package merge
+
+func solve(A []int, B []int) []int {
+	var res []int
+	var i, j = 0, 0
+	for i < len(A) && j < len(B) {
+		if A[i] <= B[j] {
+			res = append(res, A[i])
+			i++
+		} else {
+			res = append(res, B[j])
+			j++
+		}
+	}
+
+	for i < len(A) {
+		res = append(res, A[i])
+	}
+
+	for j < len(B) {
+		res = append(res, B[j])
+	}
+	return res
+}
