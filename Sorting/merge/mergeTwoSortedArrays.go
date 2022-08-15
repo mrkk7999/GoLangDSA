@@ -1,10 +1,14 @@
 package merge
 
+/**
+ * @input A : Integer array
+ * @input B : Integer array
+ *
+ * @Output Integer array.
+ */
 func solve(A []int, B []int) []int {
 	var res []int
-	// var i,j int
-	i := 0
-	j := 0
+	var i, j = 0, 0
 	for i < len(A) && j < len(B) {
 		if A[i] <= B[j] {
 			res = append(res, A[i])
