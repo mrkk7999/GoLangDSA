@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// https://www.scaler.com/academy/mentee-dashboard/class/13343/assignment/problems/200/submissions
 func binSearchItr(arr []int, target int, left, right int) (int, bool) {
 	for left <= right {
 		mid := left + (right-left)/2
