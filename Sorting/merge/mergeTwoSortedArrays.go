@@ -1,4 +1,4 @@
-package merge
+package main
 
 /**
  * @input A : Integer array
