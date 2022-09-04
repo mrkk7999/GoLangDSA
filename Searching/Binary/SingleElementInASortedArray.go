@@ -12,7 +12,13 @@ package main
 
 import "fmt"
 
-// Approach
+// Approach from observation
+// 1. Boundary checks - if element at 1 & 2 not similar return first,
+//    if element at last and second last not same return last
+// 2. Pair index property - pair start with even index and end at odd index
+//    when single element encounters this situation reverses
+// 3. Unique element property - if element not matching on left and right
+// 4. Partition property -
 func singleNonDuplicate(nums []int) (int, int) {
 	N := len(nums)
 	left, right := 0, N-1
@@ -20,11 +26,15 @@ func singleNonDuplicate(nums []int) (int, int) {
 	for left <= right {
 		M := left + (right-left)/2
 		// checks if single element present at the edges
-		if (M == 0 || nums[M] != nums[M-1]) && (M == N-1 || nums[M] != nums[M+1]) {
+		//if (M == 0 || nums[M] != nums[M-1]) && (M == N-1 || nums[M] != nums[M+1]) {
+		//	return nums[M], M
+		//}
+
+		if (M == 0 && nums[M] != nums[M+1]) || (M == N-1 && nums[M] != nums[M-1]) {
 			return nums[M], M
 		}
 		// it implies element at M & M+1 position are same
-		if M == 0 || nums[M] != nums[M-1] {
+		if nums[M] != nums[M-1] {
 			// that means our mid is at first position since in above condition we found mid and mid next are same and
 			// if mid is even that means no single inserted till now
 			// so we can go on right
@@ -52,7 +62,7 @@ func singleNonDuplicate(nums []int) (int, int) {
 }
 
 func main() {
-	var arr = []int{12, 42, 42, 43, 43}
+	var arr = []int{12, 12, 42, 42, 43, 43, 13}
 	element, index := singleNonDuplicate(arr)
 	if index != -1 {
 		fmt.Printf("Single element found at index: %d which is : %d", index, element)
