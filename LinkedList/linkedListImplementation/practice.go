@@ -7,10 +7,10 @@ type Node struct {
 	Next  *Node
 }
 
-var empty = Node{
-	Value: nil,
-	Next:  nil,
-}
+//var empty = Node{
+//	Value: nil,
+//	Next:  nil,
+//}
 var sizeOfLinkedList = 0
 
 func NewNode(Value int) *Node {
